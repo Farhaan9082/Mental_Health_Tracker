@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mental Health Tracker</title>
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            // loading django variables
+            var pos = "{{positive}}";
+            var neg = "{{negative}}";
+            var neu = "{{neutral}}";
+            
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', { 'packages': ['corechart'] });
+    
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart.bind(null, pos, neg, neu, '#000000', '#FFFFFF'));
+    
+            // Callback that creates and populates a data table,
+            // instantiates the pie chart, passes in the data and
+            // draws it.
+            function drawChart(negative_score, neutral_score, positive_score, bg_color, font_color) {
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Topping');
+                data.addColumn('number', 'Slices');
+                data.addRows([
+                    ['Negative', negative_score],
+                    ['Neutral', neutral_score],
+                    ['Positive', positive_score],
+                ]);
+    
+                // Set chart options
+                var options = {
+                    'title': 'Sentiment Analysis Result',
+                    'width': 400,
+                    'height': 300,
+                    'colors': ['#DC143C', '#1338BE', '#03C04A'],
+                              /* Crimson,   Cobalt,   Parakeet*/
+                    'is3D': true,
+                    'backgroundColor': bg_color,
+    
+                    'titleTextStyle': {
+                        'color': font_color
+                    },
+                    'legend': {
+                        'textStyle': {
+                            'color': font_color
+                        }
+                    }
+                };
+    
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+    </head>
+    <body>
+        <section>
+            <h1>Enter Something...</h1>
+            <form action="analyze" name="form" redirect="true">
+                <input type="text" placeholder="Type your word here" id="input" name="text">
+                <button type="submit" value="submit">Analyze</button>
+            </form>
+            <h1>{{text}}</h1>
+            <h1>{{positive}}</h1>
+            <h1>{{negative}}</h1>
+            <h1>{{neutral}}</h1>
+            <div id="chart_div"></div>
+        </section>
+    </body>
+</html>
