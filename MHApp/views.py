@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import string
+from json import dumps
 
 # Create your views here.
 def index(request):
@@ -11,9 +12,7 @@ def analyze(request):
     lowertext = text.lower()
     cleanedtext = lowertext.translate(str.maketrans('','',string.punctuation))
     score = SentimentIntensityAnalyzer().polarity_scores(cleanedtext)
-    positive = round(score['pos'], 2)
-    negative = round(score['neg'], 2)
-    neutral = round(score['neu'], 2)
-    compound = score['compound']
+    score_ = {"negative": round(score['neg'], 2), "neutral": round(score['neu'], 2), "positive": round(score['pos'], 2)}
+    score = dumps(score_)
 
-    return render(request, 'MHApp/index.html', {'text': text,'positive': positive,'negative': negative,'neutral': neutral,'compound': compound})
+    return render(request, 'MHApp/index.html', {'score': score})
