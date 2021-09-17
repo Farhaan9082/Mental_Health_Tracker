@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Mental Wellbeing",
+    "version": "0.1.0",
+
+    "action": {
+        "default_icon": "images/19.png",
+        "default_title": "Click Me",
+        "default_popup": "popup.html"
+    },
+
+    "description": "Performs sentiment check on the websites you visit.",
+    "icons": {
+        "128": "images/128.png"
+    },
+    "permissions": [
+        "history"
+    ]
+}

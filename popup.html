@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mental Wellbeing</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Time period</legend>
+                <input type="radio" name="period" value="minutes">Last <input type="number" id="minutes"> minute(s)
+                <br>
+                <input type="radio" name="period" value="today">Today
+                <br>
+                <input type="radio" name="period" value="week">This Week
+                <br>
+                <input type="radio" name="period" value="month">This Month
+                <br><br>
+                <input type="submit" id="submit">
+            </fieldset>
+        </form>
+        <script src="scripts/popup.js"></script>
+        <script src="scripts/history.js"></script>
+        <script src="scripts/sentiment.js"></script>
+        <script src="scripts/chart.js"></script>
+    </body>
+</html>
