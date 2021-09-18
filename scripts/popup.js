@@ -10,6 +10,13 @@
  */
 
 // As extensions are required to have event listners.
+
+//global variables
+var comp;
+var pos_count = 0;
+var neg_count = 0;
+var neu_count = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     const submit = document.getElementById('submit');
     submit.addEventListener('click', get_history);

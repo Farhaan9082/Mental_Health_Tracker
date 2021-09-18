@@ -22,7 +22,7 @@ function get_history() {
         let period = document.querySelector('input[name="period"]:checked');
         var since = get_duration(period.value);
     } catch (error) {
-        alert('No value selected!\nPess "esc" key and then enter a valid choice.');
+        alert('No value selected!\nPress "esc" key and then enter a valid choice.');
         return;
     }
     /***
@@ -58,7 +58,6 @@ let get_duration = (duration) => {
             from_epoch = (new Date()).getTime() - 1000 * 60 * 60 * 24 * (new Date()).getDay();
             break;
         case "month":
-            alert((new Date()).getDate())
             //                  current epoch     - 1000 * 60 * 60 * 24 *  days passed in the month
             from_epoch = (new Date()).getTime() - 1000 * 60 * 60 * 24 * (new Date()).getDate();
             break;
