@@ -6,26 +6,50 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mental Wellbeing</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <form>
-            <fieldset>
-                <legend>Time period</legend>
-                <input type="radio" name="period" value="minutes">Last <input type="number" id="minutes"> minute(s)
-                <br>
-                <input type="radio" name="period" value="today">Today
-                <br>
-                <input type="radio" name="period" value="week">This Week
-                <br>
-                <input type="radio" name="period" value="month">This Month
-                <br><br>
-                <input type="submit" id="submit">
-            </fieldset>
-        </form>
+        <div class="flex">
+            <div class="container-1">
+                <h1 class="heading">Analyze your Browsing-activity<br>in One click!</h1>
+                <form id="form">
+                    <fieldset class="form">
+                        <legend>Select a duration</legend>
+                        <input type="radio" name="period" value="minutes" checked>Last<input type="number" id="minutes" placeholder="0" style="width: 30px;"> minute(s)
+                        <br>
+                        <label>
+                            <input type="radio" name="period" value="today">
+                            <span>Today</span>
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="period" value="week">
+                            <span>This Week</span>
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="period" value="month">
+                            <span>This Month</span>
+                        </label>
+                        <br><br>
+                        <input class="button" type="submit" id="submit">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="container-2">
+                <img id="image" src="images/undraw_pie_graph_x9dy.svg" style="height: 250px; width: 250px;">
+                <div class="form">
+                    <canvas id="chart" hidden width="250px" height="250px"></canvas>
+                </div>
+            </div>
+        </div>
+        
         <script src="scripts/popup.js"></script>
         <script src="scripts/history.js"></script>
-        <script src="scripts/bundle.js"></script>
-        <script src="scripts/chart.js"></script>
+        <script src="scripts/sentiment.js"></script>
+        <script src="scripts/piechart.js"></script>
     </body>
 </html>

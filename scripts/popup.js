@@ -11,13 +11,16 @@
 
 // As extensions are required to have event listners.
 
-//global variables
-var comp;
-var pos_count = 0;
-var neg_count = 0;
-var neu_count = 0;
+//global variable
+var myChart;
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    //to stop page reload after submitting the form
+    var form = document.getElementById("form");
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
+
     const submit = document.getElementById('submit');
     submit.addEventListener('click', get_history);
     // get_history() -> calculate_sentiments() -> plot_chart()

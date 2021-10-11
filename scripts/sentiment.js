@@ -192,6 +192,11 @@ var sentiment = new Sentiment();
 module.exports = calculate_sentiments;
 
 function calculate_sentiments(data) {
+    var comp;
+    var pos_count = 0;
+    var neg_count = 0;
+    var neu_count = 0;
+
     data.forEach(function (page) {
         comp = sentiment.analyze(page.title);
         if(comp.comparative == 0) {
