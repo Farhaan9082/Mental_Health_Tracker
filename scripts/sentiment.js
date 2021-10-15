@@ -200,6 +200,7 @@ function calculate_sentiments(data) {
     data.forEach(function (page) {
         comp = sentiment.analyze(page.title);
         if(comp.comparative == 0) {
+            
             neu_count++;
         } else if(comp.comparative > 0) {
             pos_count++;

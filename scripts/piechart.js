@@ -14,6 +14,7 @@ function plot_chart(positive, negative, neutral) {
     let labels = ['Positive', 'Negative', 'Neutral'];
     let colorHex = ['#57f542', '#f54242', '#f5f542'];
 
+
     if(myChart == undefined)
     {
       image.style.display = "none";
@@ -28,7 +29,10 @@ function plot_chart(positive, negative, neutral) {
               labels: labels
           },
           options: {
-              responsive: false  
+              'onClick': (evt, item) => {
+              index = item[0]['index']
+              alert(labels[index])
+            }
           }
       })
     }
@@ -37,6 +41,14 @@ function plot_chart(positive, negative, neutral) {
       myChart.data.datasets[0].data = [positive, negative, neutral];
       myChart.update();
     }
+
+  // $("#chart").click(
+  //   function (evt) {
+  //     var activePoints = myNewChart.getSegmentsAtEvent(evt);
+  //     var url = "http://example.com/?label=" + activePoints[0].label + "&value=" + activePoints[0].value;
+  //     alert(url);
+  //   }
+  // );
 
 }
 
