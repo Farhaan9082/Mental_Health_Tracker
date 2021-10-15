@@ -7,6 +7,9 @@
  *   2021-09-15     1.0         Saud Kadiri     Syntax Improvement and some minor improvements
  *   2021-09-16     1.0         Saud Kadiri     get_duration() added and thus now results are sorted as per:
  *                                              minutes, day, week, month.
+ *   2021-09-19     1.1         Saud Kadiri     (new Date()).getDay() returns 0 for Sunday so solved it by using
+ *                                              ternary operator
+ *   2021-10-15     1.2         Saud Kadiri     maxResults: 0
  *
  *  Source: https://developer.chrome.com/docs/extensions/reference/
  *          https://github.com/GoogleChrome/chrome-extensions-samples/blob/main/mv2-archive/api/history/showHistory/
@@ -29,10 +32,11 @@ function get_history() {
      * Chrome history API (ONLY for web extensions) for Chromium powered browsers
      * however be converted into a Safari extension or Firefox add-on to work on them
      * Syntax: chrome.history.search({text:'', startTime: epoch, endTime: to, maxResults: result_count});
+     * "maxResults" should be set to 0 to get all the queries
      */
-    
-    chrome.history.search({ text: '', startTime: since }, (data) => {
+    chrome.history.search({ text: '', startTime: since, maxResults: 0 }, (data) => {
         calculate_sentiments(data);
+        alert(data.length)
     });
 }
 
@@ -54,8 +58,9 @@ let get_duration = (duration) => {
             from_epoch = (new Date()).getTime() - 1000 * 60 * 60 * (new Date()).getHours();
             break;
         case "week":
+            let days_passed = (new Date()).getDay() === 0 ? 7 : (new Date()).getDay();
             //                  current epoch     - 1000 * 60 * 60 * 24 * week days passed in the week
-            from_epoch = (new Date()).getTime() - 1000 * 60 * 60 * 24 * (new Date()).getDay();
+            from_epoch = (new Date()).getTime() - 1000 * 60 * 60 * 24 * days_passed
             break;
         case "month":
             //                  current epoch     - 1000 * 60 * 60 * 24 *  days passed in the month

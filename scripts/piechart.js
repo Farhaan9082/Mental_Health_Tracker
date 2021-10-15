@@ -7,7 +7,7 @@ var Chart = require('chart.js');
 
 module.exports = plot_chart;
 
-function plot_chart (positive, negative, neutral) {
+function plot_chart(positive, negative, neutral) {
     let ctx = document.getElementById('chart').getContext('2d');
     let visible = document.getElementById('chart')
     let image = document.getElementById('image')
