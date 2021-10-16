@@ -7,7 +7,7 @@ var Chart = require('chart.js');
 
 module.exports = plot_chart;
 
-function plot_chart(positive, negative, neutral) {
+function plot_chart(positive, negative, neutral, dict) {
     let ctx = document.getElementById('chart').getContext('2d');
     let visible = document.getElementById('chart')
     let image = document.getElementById('image')
@@ -31,7 +31,10 @@ function plot_chart(positive, negative, neutral) {
           options: {
               'onClick': (evt, item) => {
               index = item[0]['index']
-              alert(labels[index])
+              window.localStorage.setItem('list', JSON.stringify(dict[labels[index]]))
+              chrome.tabs.create({ 'url': "../details.html" });
+
+
             }
           }
       })
@@ -41,15 +44,6 @@ function plot_chart(positive, negative, neutral) {
       myChart.data.datasets[0].data = [positive, negative, neutral];
       myChart.update();
     }
-
-  // $("#chart").click(
-  //   function (evt) {
-  //     var activePoints = myNewChart.getSegmentsAtEvent(evt);
-  //     var url = "http://example.com/?label=" + activePoints[0].label + "&value=" + activePoints[0].value;
-  //     alert(url);
-  //   }
-  // );
-
 }
 
 },{"chart.js":2}],2:[function(require,module,exports){

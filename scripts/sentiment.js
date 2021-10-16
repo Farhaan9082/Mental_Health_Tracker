@@ -196,15 +196,22 @@ function calculate_sentiments(data) {
     var pos_count = 0;
     var neg_count = 0;
     var neu_count = 0;
+    var dict = {
+        'Positive': [],
+        'Negative': [],
+        'Neutral': []
+    }
 
     data.forEach(function (page) {
         comp = sentiment.analyze(page.title);
         if(comp.comparative == 0) {
-            
+            dict['Neutral'].push(page);
             neu_count++;
         } else if(comp.comparative > 0) {
+            dict['Positive'].push(page);
             pos_count++;
         } else {
+            dict['Negative'].push(page);
             neg_count++;
         }
     });
@@ -217,11 +224,10 @@ function calculate_sentiments(data) {
     var neg_percentage = (neg_count/total_count)*100;
 
     if(total_count > 0) {
-        plot_chart(pos_percentage, neg_percentage, neu_percentage)
+        plot_chart(pos_percentage, neg_percentage, neu_percentage, dict);
     } else {
         alert('No Visited Website!\nPress "esc" key and then enter a valid choice.');
     }
-
 }
 
 
