@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //to stop page reload after submitting the form
     var form = document.getElementById("form");
-    function handleForm(event) { event.preventDefault(); } 
+    function handleForm(event) { event.preventDefault(); }
     form.addEventListener('submit', handleForm);
 
     // in case if the user clicks "Submit" button
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // in case if the user clicks "QnA" button
     const qna = document.getElementById('qna');
     qna.addEventListener('click', () => {
-        chrome.tabs.create( {url: "https://www.dynamicyou.org/mental-health-questionnaires/online-depression-questionnaire/"})
+        chrome.tabs.create( {url: "../QnA.html"})
     })
 
     // in case if the user clicks "QnA" button
