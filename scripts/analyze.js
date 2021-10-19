@@ -1,22 +1,27 @@
 
 
+
+
 function highlight_text () {
-    var paragraph = document.getElementsByTagName("p");
-    var j = paragraph.length;
-    
-    for (let i = 0; i < j; i++) {
-        var p = quick_sentiment(paragraph[i]);
-        console.log(p);
-        if(p == 'Positive') {
-            let regExp = new RegExp(paragraph[i], 'gi');
-            paragraph[i].textContent = (paragraph[i].textContent).replace(regExp, "<mark>$&</mark>");
-        } else if (p == 'Negative') {
-            let regExp = new RegExp(paragraph[i], 'gi');
-            paragraph[i].textContent = (paragraph[i].textContent).replace(regExp, "<mark>$&</mark>");
+    let paragraphs = document.getElementsByTagName("p");
+    let paragraph = [];
+    for (elt of paragraphs) {
+        paragraph.push(elt.innerText);
+    }
+
+    for (var i = 0; i < paragraphs.length; i++) {
+        let p = quick_sentiment(paragraph[i]);
+
+        // console.log(p);
+        console.log(paragraph[i]);
+        if(p === 'Positive') {
+            paragraphs[i].style['background-color'] = '#ff00ff';
+        } else if (p === 'Negative') {
+            paragraphs[i].style['background-color'] = '#ff00ff';
         } else {
-            let regExp = new RegExp(paragraph[i], 'gi');
-            paragraph[i].textContent = (paragraph[i].textContent).replace(regExp, "<mark>$&</mark>");
+            paragraphs[i].style['background-color'] = '#ff00ff';
         }
     }
-}
 
+
+}
