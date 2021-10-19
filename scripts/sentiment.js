@@ -197,9 +197,9 @@ function calculate_sentiments(data) {
     var neg_count = 0;
     var neu_count = 0;
     var dict = {
-        'Positive': [],
-        'Negative': [],
-        'Neutral': []
+        'Positive': ['Positive'],
+        'Negative': ['Negative'],
+        'Neutral': ['Neutral']
     }
 
     data.forEach(function (page) {

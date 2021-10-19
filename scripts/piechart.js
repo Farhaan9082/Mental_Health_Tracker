@@ -33,8 +33,6 @@ function plot_chart(positive, negative, neutral, dict) {
               index = item[0]['index']
               window.localStorage.setItem('list', JSON.stringify(dict[labels[index]]))
               chrome.tabs.create({ 'url': "../details.html" });
-
-
             }
           }
       })
