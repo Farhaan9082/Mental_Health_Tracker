@@ -230,6 +230,16 @@ function calculate_sentiments(data) {
     }
 }
 
+window.quick_sentiment = (paragraph) => {
+    let comp = sentiment.analyze(paragraph);
+    if (comp.comparative == 0) {
+        return "Neutral";
+    } else if (comp.comparative > 0) {
+        return "Positive";
+    } else {
+        return "Negative"
+    }
+}
 
 },{"sentiment":8}],3:[function(require,module,exports){
 module.exports={

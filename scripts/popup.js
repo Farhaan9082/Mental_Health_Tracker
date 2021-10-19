@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // in case if the user clicks "Analyze" button
     const analyze = document.getElementById('analyze');
-    analyze.addEventListener('click', replace_text);
+    analyze.addEventListener('click', highlight_text);
 
     // in case if the user clicks "QnA" button
     const qna = document.getElementById('qna');
