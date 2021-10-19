@@ -9,12 +9,13 @@ body{
 }
 
 .container-1 {
+    width: 400px;
     padding-bottom: 20px;
 }
 
 .container-2 {
     display: flex;
-    padding-left: 50px;
+    padding-left: 40px;
     align-items: center;
 }
 
@@ -28,16 +29,68 @@ body{
 }
 
 .heading {
-    color: blue;
+    padding-left: 5px;
+    font-size: 26px;
+    color: #293556;
     font-weight: 700;
 }
 
-.button {
-    color: white;
-    background-color: #3d3d3d;
-    border-radius: 5px;
+.light {
+    color: #8d98a8;
+}
+
+.button { 
+    display: inline-block;
+    outline: 0;
     border: none;
-    padding: 8px 12px 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
     font-size: 12px;
+    height: 30px;
+    background-color: #1c243b;
+    color: white;
+    padding: 0 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px 10px 10px;
+}
+
+.button-1 {
+    color: black;
+    background-color: #b8c6db;
+    border: none;
+    border-radius: 500px;
+    padding: 8px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-2 {
+    color: black;
+    background-color: #b8c6db;
+    border: none;
+    border-radius: 500px;
+    padding: 8px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-3 {
+    color: black;
+    background-color: #b8c6db;
+    border: none;
+    border-radius: 500px;
+    padding: 8px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
 }

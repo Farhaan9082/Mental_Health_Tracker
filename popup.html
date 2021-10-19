@@ -14,7 +14,7 @@
     <body>
         <div class="flex">
             <div class="container-1">
-                <h1 class="heading">Analyze your Browsing-activity<br>in One click!</h1>
+                <h1 class="heading">Analyze <span class="light">your</span> Browsing visits</h1>
                 <form id="form">
                     <fieldset class="form">
                         <legend>Select a duration</legend>
@@ -40,16 +40,16 @@
                 </form>
             </div>
             <div class="container-2">
-                <img id="image" src="images/undraw_pie_graph_x9dy.svg" style="height: 250px; width: 250px;">
+                <img id="image" src="images/pie.svg" style="height: 250px; width: 250px;">
                 <div class="form">
                     <canvas id="chart" hidden width="250px" height="250px"></canvas>
                 </div>
             </div>
         </div>
-        <nav>
-            <input class="button" type="submit" id="analyze" value="Analyze this page">
-            <input class="button" type="submit" id="qna" value="QnA">
-            <input class="button" type="submit" id="video" value="Watch inspirational videos">
+        <nav class="button-group">
+            <input class="button-1" type="submit" id="analyze" value="Analyze current webpage">
+            <input class="button-2" type="submit" id="qna" value="Try our Mental Health QnA">
+            <input class="button-3" type="submit" id="video" value="Watch inspirational videos">
         </nav>
         <script src="scripts/popup.js"></script>
         <script src="scripts/history.js"></script>

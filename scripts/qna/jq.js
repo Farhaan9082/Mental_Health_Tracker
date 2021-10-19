@@ -86,14 +86,14 @@ var quiz = [
         "explanation": "",
     },
     {
-        "question": "Q8: How many hours do you sleep per day?",
+        "question": "Q8: Do you sleep minimum 6 hours a day?",
         "image": "",
         "choices": [
             "Yes",
             "No",
 
         ],
-        "Danger": "Yes",
+        "Danger": "No",
         "explanation": "",
     },
     {
@@ -228,7 +228,7 @@ jQuery(document).ready(function ($) {
         $('#choice-block').empty();
         $('#submitbutton').remove();
         $('#question').text("You got " + score + " out of " + quiz.length + " Danger.");
-        $(document.createElement('h2')).css({ 'text-align': 'center', 'font-size': '4em' }).text(Math.round(score / quiz.length * 100) + '% Chances of Mental Health').insertAfter('#question');
+        $(document.createElement('h2')).css({ 'text-align': 'center', 'font-size': '4em' }).text(Math.round(score / quiz.length * 100) + '% Chance of Mental Health Concerns').insertAfter('#question');
     }
 
     /**

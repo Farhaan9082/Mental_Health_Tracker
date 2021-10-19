@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 div {
     border: 1px solid;
     border-radius: 3px;
-    margin-bottom: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: #ecf0f3;
 }

@@ -36,7 +36,6 @@ function get_history() {
      */
     chrome.history.search({ text: '', startTime: since, maxResults: 0 }, (data) => {
         calculate_sentiments(data);
-        alert(data.length) /* This line is for testing purpose will be removed for deployment */
     });
 }
 
