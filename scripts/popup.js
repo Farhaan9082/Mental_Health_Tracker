@@ -28,7 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // in case if the user clicks "Analyze" button
     const analyze = document.getElementById('analyze');
-    analyze.addEventListener('click', highlight_text);
+    analyze.addEventListener('click', () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            let currentTabId = tabs[0].id;
+            let dict = {
+                target: { tabId: currentTabId },
+                files: ['scripts/analyze.js']
+            }
+            chrome.scripting.executeScript(dict);
+        });
+    });
 
     // in case if the user clicks "QnA" button
     const qna = document.getElementById('qna');

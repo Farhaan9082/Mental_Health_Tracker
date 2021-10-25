@@ -1,27 +1,30 @@
-
-
-
-
-function highlight_text () {
+(function page_analysis() {
     let paragraphs = document.getElementsByTagName("p");
-    let paragraph = [];
-    for (elt of paragraphs) {
-        paragraph.push(elt.innerText);
+    highlight_text(paragraphs);
+})();
+
+function highlight_text(paragraphs) {
+    for (const paragraph of paragraphs) {
+        console.log(paragraph)
+        color = get_color(paragraph)
+        paragraph.style['background-color'] = color;
     }
+}
 
-    for (var i = 0; i < paragraphs.length; i++) {
-        let p = quick_sentiment(paragraph[i]);
+function get_color(paragraph) {
+    let colors = { 
+        "Neutral": "#FFFF00",   // Yellow
+        "Positive": "#00FF00",  // Green
+        "Negative": "#FF0000"   // Red
+    };
+    let type = testType() // quick_sentiment(paragraph)
+    return colors[type];
+}
 
-        // console.log(p);
-        console.log(paragraph[i]);
-        if(p === 'Positive') {
-            paragraphs[i].style['background-color'] = '#ff00ff';
-        } else if (p === 'Negative') {
-            paragraphs[i].style['background-color'] = '#ff00ff';
-        } else {
-            paragraphs[i].style['background-color'] = '#ff00ff';
-        }
-    }
-
-
+// Only for testing purpose
+function testType() {
+    let min = 0, max = 2
+    let types = ["Neutral", "Positive", "Negative"];
+    let i = Math.floor(Math.random() * (max - min + 1)) + min;
+    return types[i];
 }
