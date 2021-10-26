@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let currentTabId = tabs[0].id;
             let dict = {
                 target: { tabId: currentTabId },
-                files: ['scripts/analyze.js']
+                files: ['scripts/sentiment.js', 'scripts/analyze.js']
             }
             chrome.scripting.executeScript(dict);
         });

@@ -216,7 +216,6 @@ function calculate_sentiments(data) {
         }
     });
 
-
     //calculate percentage
     var total_count = neu_count + pos_count + neg_count;
     var pos_percentage = (pos_count/total_count)*100;
@@ -231,7 +230,8 @@ function calculate_sentiments(data) {
 }
 
 window.quick_sentiment = (paragraph) => {
-    let comp = sentiment.analyze(paragraph);
+    text = paragraph.innerHTML;
+    let comp = sentiment.analyze(text);
     if (comp.comparative == 0) {
         return "Neutral";
     } else if (comp.comparative > 0) {
