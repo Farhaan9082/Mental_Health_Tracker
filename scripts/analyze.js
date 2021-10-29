@@ -1,23 +1,39 @@
-// const plot_chart = require("./piechart");
-
+/**
+ * Called from popop.js this page_analysis() gets called.
+ */
 (function page_analysis() {
     let paragraphs = document.getElementsByTagName("p");
     highlight_text(paragraphs);
+    let list = document.getElementsByTagName("li");
+    highlight_text(list);
+    let span = document.getElementsByTagName("span");
+    highlight_text(span);
+    let h1 = document.getElementsByTagName("h1");
+    highlight_text(h1);
 })();
 
-function highlight_text(paragraphs) {
-    for (const paragraph of paragraphs) {
-        color = get_color(paragraph)
-        paragraph.style['background-color'] = color;
+/**
+ * Highlights the text within the passed tag.
+ * @param {HTMLCollectionOf<HTMLElement>} tag
+ */
+function highlight_text(tags) {
+    for (const tag of tags) {
+        let text = tag.innerHTML
+        color = get_color(text)
+        tag.style['background-color'] = color;
     }
 }
 
-function get_color(paragraph) {
+/**
+ * Calls the quick_sentiment() function and returns the color based on the outcome
+ * @param {string} text
+ */
+function get_color(text) {
     let colors = { 
-        "Neutral": "#FFFF00",   // Yellow
-        "Positive": "#00FF00",  // Green
-        "Negative": "#FF0000"   // Red
+        "Neutral": "#FFD604",   // Yellow
+        "Positive": "#B4E001",  // Green
+        "Negative": "#CE3536"   // Red
     };
-    let type = quick_sentiment(paragraph)
+    let type = quick_sentiment(text)
     return colors[type];
 }

@@ -229,8 +229,7 @@ function calculate_sentiments(data) {
     }
 }
 
-window.quick_sentiment = (paragraph) => {
-    text = paragraph.innerHTML;
+window.quick_sentiment = (text) => {
     let comp = sentiment.analyze(text);
     if (comp.comparative == 0) {
         return "Neutral";
