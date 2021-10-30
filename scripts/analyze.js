@@ -1,5 +1,5 @@
 /**
- * Called from popup.js this page_analysis() gets called.
+ * Called from popuop.js this page_analysis() gets called.
  */
 
 (function page_analysis() {
